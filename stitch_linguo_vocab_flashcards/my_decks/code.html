@@ -1,0 +1,467 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f8f9ff;
+        }
+        .glass-card {
+            background: rgba(255, 255, 255, 0.8);
+            backdrop-filter: blur(8px);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+        }
+        .no-scrollbar::-webkit-scrollbar {
+            display: none;
+        }
+    </style>
+<script id="tailwind-config">
+        tailwind.config = {
+          darkMode: "class",
+          theme: {
+            extend: {
+              "colors": {
+                      "primary-fixed-dim": "#b4c5ff",
+                      "secondary": "#006c49",
+                      "surface-container-low": "#eff4ff",
+                      "on-primary-container": "#eeefff",
+                      "inverse-primary": "#b4c5ff",
+                      "tertiary": "#4e565b",
+                      "tertiary-fixed-dim": "#bfc8ce",
+                      "surface-container-lowest": "#ffffff",
+                      "secondary-fixed": "#6ffbbe",
+                      "on-primary": "#ffffff",
+                      "surface-container": "#e5eeff",
+                      "surface-dim": "#cbdbf5",
+                      "on-secondary": "#ffffff",
+                      "surface-bright": "#f8f9ff",
+                      "on-tertiary-fixed": "#141d21",
+                      "outline-variant": "#c3c6d7",
+                      "on-secondary-fixed": "#002113",
+                      "on-secondary-container": "#00714d",
+                      "on-primary-fixed": "#00174b",
+                      "primary-fixed": "#dbe1ff",
+                      "inverse-on-surface": "#eaf1ff",
+                      "error": "#ba1a1a",
+                      "on-surface-variant": "#434655",
+                      "on-tertiary": "#ffffff",
+                      "surface-variant": "#d3e4fe",
+                      "tertiary-fixed": "#dbe4ea",
+                      "background": "#f8f9ff",
+                      "primary": "#004ac6",
+                      "surface-tint": "#0053db",
+                      "secondary-fixed-dim": "#4edea3",
+                      "secondary-container": "#6cf8bb",
+                      "outline": "#737686",
+                      "on-background": "#0b1c30",
+                      "primary-container": "#2563eb",
+                      "surface": "#f8f9ff",
+                      "inverse-surface": "#213145",
+                      "on-primary-fixed-variant": "#003ea8",
+                      "on-tertiary-fixed-variant": "#3f484d",
+                      "tertiary-container": "#666f74",
+                      "on-secondary-fixed-variant": "#005236",
+                      "surface-container-high": "#dce9ff",
+                      "surface-container-highest": "#d3e4fe",
+                      "on-error-container": "#93000a",
+                      "on-surface": "#0b1c30",
+                      "on-tertiary-container": "#e9f2f8",
+                      "error-container": "#ffdad6",
+                      "on-error": "#ffffff"
+              },
+              "borderRadius": {
+                      "DEFAULT": "0.25rem",
+                      "lg": "0.5rem",
+                      "xl": "0.75rem",
+                      "full": "9999px"
+              },
+              "spacing": {
+                      "xs": "4px",
+                      "container-max": "1200px",
+                      "sm": "8px",
+                      "lg": "24px",
+                      "md": "16px",
+                      "xl": "48px",
+                      "gutter": "20px",
+                      "base-unit": "4px"
+              },
+              "fontFamily": {
+                      "interactive-btn": ["Inter"],
+                      "headline-md": ["Inter"],
+                      "body-lg": ["Inter"],
+                      "display-vocab": ["Inter"],
+                      "headline-lg-mobile": ["Inter"],
+                      "headline-lg": ["Inter"],
+                      "label-caps": ["Inter"],
+                      "body-md": ["Inter"]
+              },
+              "fontSize": {
+                      "interactive-btn": ["16px", {"lineHeight": "20px", "fontWeight": "500"}],
+                      "headline-md": ["20px", {"lineHeight": "28px", "fontWeight": "600"}],
+                      "body-lg": ["18px", {"lineHeight": "28px", "fontWeight": "400"}],
+                      "display-vocab": ["40px", {"lineHeight": "48px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                      "headline-lg-mobile": ["24px", {"lineHeight": "32px", "fontWeight": "600"}],
+                      "headline-lg": ["30px", {"lineHeight": "38px", "fontWeight": "600"}],
+                      "label-caps": ["12px", {"lineHeight": "16px", "letterSpacing": "0.05em", "fontWeight": "600"}],
+                      "body-md": ["16px", {"lineHeight": "24px", "fontWeight": "400"}]
+              }
+            },
+          },
+        }
+    </script>
+</head>
+<body class="bg-background text-on-background">
+<!-- SideNavBar Shell -->
+<aside class="h-screen w-64 fixed left-0 top-0 flex flex-col h-full py-md px-md border-r border-outline-variant bg-surface-container-lowest shadow-sm z-50">
+<div class="mb-xl px-sm">
+<h1 class="text-headline-lg font-headline-lg font-bold text-primary">Linguist</h1>
+<p class="text-body-md font-body-md text-on-surface-variant opacity-70">Daily Streak: 12 days</p>
+</div>
+<nav class="flex-1 space-y-xs">
+<a class="flex items-center gap-md px-md py-sm rounded-lg text-on-surface-variant hover:text-primary hover:bg-surface-container-high transition-colors duration-200 group" href="#">
+<span class="material-symbols-outlined">dashboard</span>
+<span class="text-body-md font-body-md">Dashboard</span>
+</a>
+<a class="flex items-center gap-md px-md py-sm rounded-lg text-on-surface-variant hover:text-primary hover:bg-surface-container-high transition-colors duration-200 group" href="#">
+<span class="material-symbols-outlined">school</span>
+<span class="text-body-md font-body-md">Learn</span>
+</a>
+<!-- Active Navigation State for Decks Management -->
+<a class="flex items-center gap-md px-md py-sm rounded-lg text-primary font-bold border-r-4 border-primary bg-surface-container-low transition-colors duration-200" href="#">
+<span class="material-symbols-outlined">style</span>
+<span class="text-body-md font-body-md">Decks</span>
+</a>
+<a class="flex items-center gap-md px-md py-sm rounded-lg text-on-surface-variant hover:text-primary hover:bg-surface-container-high transition-colors duration-200 group" href="#">
+<span class="material-symbols-outlined">query_stats</span>
+<span class="text-body-md font-body-md">Statistics</span>
+</a>
+</nav>
+<div class="mt-auto space-y-xs">
+<button class="w-full mb-md flex items-center justify-center gap-sm bg-primary text-on-primary py-md rounded-xl font-interactive-btn text-interactive-btn hover:opacity-90 active:scale-[0.98] transition-all">
+<span class="material-symbols-outlined">add</span>
+                New Deck
+            </button>
+<a class="flex items-center gap-md px-md py-sm rounded-lg text-on-surface-variant hover:text-primary hover:bg-surface-container-high transition-colors" href="#">
+<span class="material-symbols-outlined">settings</span>
+<span class="text-body-md font-body-md">Settings</span>
+</a>
+<a class="flex items-center gap-md px-md py-sm rounded-lg text-on-surface-variant hover:text-primary hover:bg-surface-container-high transition-colors" href="#">
+<span class="material-symbols-outlined">help</span>
+<span class="text-body-md font-body-md">Help</span>
+</a>
+</div>
+</aside>
+<!-- TopAppBar Shell -->
+<header class="flex justify-between items-center h-16 px-lg sticky top-0 z-40 ml-64 bg-surface border-b border-outline-variant">
+<div class="flex items-center gap-md w-1/2">
+<div class="relative w-full max-w-md">
+<span class="material-symbols-outlined absolute left-md top-1/2 -translate-y-1/2 text-outline">search</span>
+<input class="w-full bg-surface-container-low border-none rounded-full pl-xl pr-lg py-sm text-body-md font-body-md focus:ring-2 focus:ring-primary/20 outline-none transition-all" placeholder="Search decks or vocabulary..." type="text"/>
+</div>
+</div>
+<div class="flex items-center gap-lg">
+<div class="flex items-center gap-md">
+<button class="p-sm rounded-full text-on-surface-variant hover:text-primary hover:bg-surface-container-high transition-all">
+<span class="material-symbols-outlined">notifications</span>
+</button>
+<button class="p-sm rounded-full text-on-surface-variant hover:text-primary hover:bg-surface-container-high transition-all">
+<span class="material-symbols-outlined">history</span>
+</button>
+</div>
+<div class="flex items-center gap-sm cursor-pointer group">
+<div class="text-right hidden sm:block">
+<p class="text-label-caps font-label-caps text-on-surface">Alex Rivera</p>
+<p class="text-[10px] text-outline">Pro Learner</p>
+</div>
+<img alt="Profile" class="w-10 h-10 rounded-full border-2 border-surface-container-high group-hover:border-primary transition-colors" data-alt="A professional headshot of a smiling young adult man with a clean-cut look, wearing a neutral-colored casual shirt. The background is a soft, out-of-focus modern office setting with natural lighting. The overall aesthetic is clean, minimalist, and high-quality, fitting a professional learning platform's user profile." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCHsDPifr3tB7o-ntFrX4eWiKwGOR0NMa5sreAMAm_s-bWjgi9pzA_tIOKMJol7I6O5nJvasI6G2nBRxkyCiD4LHzRX_rhyZ7iUMAY995trCFDF3Bqi_TdZw_OF_b99wG4SFlkz_lDiPyDmi1lc31mArc-G31P9IaOfDuTIqJGCdUgjJk-joDyyPiqueVqYrLjCrtLA7n480Med8ZGZWqKdlpLMkJIUqtF5HCvgQXpD6bTtOJOi0cSJjb6UVPDQfxVelaS5VZqUVpE"/>
+</div>
+</div>
+</header>
+<!-- Main Content -->
+<main class="ml-64 p-xl max-w-container-max mx-auto">
+<!-- Welcome & Quick Actions Header -->
+<div class="flex flex-col md:flex-row justify-between items-start md:items-end gap-lg mb-xl">
+<div>
+<h2 class="text-headline-lg font-headline-lg text-on-background mb-xs">Deck Management</h2>
+<p class="text-body-lg font-body-lg text-on-surface-variant max-w-2xl">Organize your language learning journey. Manage, edit, and track your mastery levels across all your vocabulary collections.</p>
+</div>
+<div class="flex gap-md">
+<button class="flex items-center gap-sm px-lg py-md border border-outline-variant rounded-xl text-on-surface font-interactive-btn text-interactive-btn hover:bg-surface-container transition-all active:scale-95">
+<span class="material-symbols-outlined">upload_file</span>
+                    Import CSV
+                </button>
+<button class="flex items-center gap-sm px-lg py-md bg-primary-container text-on-primary-container rounded-xl font-interactive-btn text-interactive-btn hover:shadow-lg transition-all active:scale-95">
+<span class="material-symbols-outlined">add_circle</span>
+                    Add New Deck
+                </button>
+</div>
+</div>
+<!-- Mastery Overview Cards (Asymmetric Bento Lite) -->
+<div class="grid grid-cols-1 md:grid-cols-3 gap-lg mb-xl">
+<div class="md:col-span-2 p-xl rounded-xl bg-white shadow-[0px_4px_20px_rgba(0,0,0,0.04)] flex justify-between items-center relative overflow-hidden group">
+<div class="relative z-10">
+<p class="text-label-caps font-label-caps text-secondary mb-sm uppercase">Global Progress</p>
+<h3 class="text-headline-lg font-headline-lg text-on-surface">64% Mastery</h3>
+<p class="text-body-md font-body-md text-on-surface-variant mt-sm">You've mastered 1,240 out of 1,938 total words.</p>
+</div>
+<div class="relative w-24 h-24 z-10">
+<svg class="w-full h-full transform -rotate-90">
+<circle class="text-surface-container" cx="48" cy="48" fill="transparent" r="40" stroke="currentColor" stroke-width="8"></circle>
+<circle class="text-secondary" cx="48" cy="48" fill="transparent" r="40" stroke="currentColor" stroke-dasharray="251.2" stroke-dashoffset="90.4" stroke-width="8"></circle>
+</svg>
+<div class="absolute inset-0 flex items-center justify-center text-label-caps font-label-caps text-secondary">64%</div>
+</div>
+<div class="absolute right-0 top-0 w-64 h-64 bg-secondary/5 rounded-full -translate-y-1/2 translate-x-1/4 group-hover:scale-110 transition-transform duration-700"></div>
+</div>
+<div class="p-xl rounded-xl bg-primary text-on-primary shadow-[0px_4px_20px_rgba(0,0,0,0.08)] flex flex-col justify-between">
+<span class="material-symbols-outlined text-4xl opacity-50">auto_awesome</span>
+<div>
+<h4 class="text-headline-md font-headline-md">Daily Goal</h4>
+<p class="text-body-md font-body-md opacity-80">15 new words to go today.</p>
+</div>
+</div>
+</div>
+<!-- Decks Table -->
+<div class="bg-white rounded-xl shadow-[0px_4px_20px_rgba(0,0,0,0.04)] overflow-hidden">
+<div class="px-xl py-lg border-b border-outline-variant flex justify-between items-center">
+<div class="flex items-center gap-md">
+<span class="text-headline-md font-headline-md text-on-surface">Active Decks</span>
+<span class="px-sm py-xs bg-surface-container-high rounded text-label-caps font-label-caps text-primary">12 TOTAL</span>
+</div>
+<div class="flex items-center gap-sm">
+<button class="p-sm text-outline hover:text-primary transition-colors">
+<span class="material-symbols-outlined">filter_list</span>
+</button>
+<button class="p-sm text-outline hover:text-primary transition-colors">
+<span class="material-symbols-outlined">sort</span>
+</button>
+</div>
+</div>
+<div class="overflow-x-auto no-scrollbar">
+<table class="w-full text-left border-collapse">
+<thead class="bg-surface-container-lowest">
+<tr>
+<th class="px-xl py-md text-label-caps font-label-caps text-outline uppercase">Deck Name</th>
+<th class="px-xl py-md text-label-caps font-label-caps text-outline uppercase">Category</th>
+<th class="px-xl py-md text-label-caps font-label-caps text-outline uppercase">Cards</th>
+<th class="px-xl py-md text-label-caps font-label-caps text-outline uppercase">Mastery</th>
+<th class="px-xl py-md text-label-caps font-label-caps text-outline uppercase">Last Studied</th>
+<th class="px-xl py-md text-label-caps font-label-caps text-outline uppercase">Actions</th>
+</tr>
+</thead>
+<tbody class="divide-y divide-outline-variant">
+<!-- Table Row 1 -->
+<tr class="hover:bg-surface-container-low transition-colors group">
+<td class="px-xl py-lg">
+<div class="flex items-center gap-md">
+<div class="w-10 h-10 rounded-lg bg-primary/10 flex items-center justify-center text-primary">
+<span class="material-symbols-outlined">translate</span>
+</div>
+<div>
+<p class="text-body-md font-bold text-on-surface">Core Spanish Verbs</p>
+<p class="text-label-caps font-label-caps text-outline">LEVEL: INTERMEDIATE</p>
+</div>
+</div>
+</td>
+<td class="px-xl py-lg">
+<span class="px-md py-xs bg-surface-container rounded-full text-label-caps font-label-caps text-on-surface-variant">Spanish</span>
+</td>
+<td class="px-xl py-lg text-body-md font-body-md text-on-surface">450</td>
+<td class="px-xl py-lg">
+<div class="flex items-center gap-sm">
+<div class="w-24 bg-surface-container-high h-1.5 rounded-full overflow-hidden">
+<div class="bg-secondary h-full rounded-full" style="width: 82%"></div>
+</div>
+<span class="text-label-caps font-label-caps text-secondary">82%</span>
+</div>
+</td>
+<td class="px-xl py-lg text-body-md font-body-md text-outline">Today</td>
+<td class="px-xl py-lg">
+<div class="flex items-center gap-sm">
+<button class="p-sm rounded-lg text-outline hover:text-primary hover:bg-primary/10 transition-all" title="Edit">
+<span class="material-symbols-outlined">edit</span>
+</button>
+<button class="p-sm rounded-lg text-outline hover:text-error hover:bg-error/10 transition-all" title="Delete">
+<span class="material-symbols-outlined">delete</span>
+</button>
+<button class="p-sm rounded-lg text-primary hover:bg-primary/10 transition-all" title="Study Now">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">play_circle</span>
+</button>
+</div>
+</td>
+</tr>
+<!-- Table Row 2 -->
+<tr class="hover:bg-surface-container-low transition-colors group">
+<td class="px-xl py-lg">
+<div class="flex items-center gap-md">
+<div class="w-10 h-10 rounded-lg bg-tertiary/10 flex items-center justify-center text-tertiary">
+<span class="material-symbols-outlined">restaurant</span>
+</div>
+<div>
+<p class="text-body-md font-bold text-on-surface">Culinary Vocabulary</p>
+<p class="text-label-caps font-label-caps text-outline">LEVEL: BEGINNER</p>
+</div>
+</div>
+</td>
+<td class="px-xl py-lg">
+<span class="px-md py-xs bg-surface-container rounded-full text-label-caps font-label-caps text-on-surface-variant">French</span>
+</td>
+<td class="px-xl py-lg text-body-md font-body-md text-on-surface">120</td>
+<td class="px-xl py-lg">
+<div class="flex items-center gap-sm">
+<div class="w-24 bg-surface-container-high h-1.5 rounded-full overflow-hidden">
+<div class="bg-primary h-full rounded-full" style="width: 35%"></div>
+</div>
+<span class="text-label-caps font-label-caps text-primary">35%</span>
+</div>
+</td>
+<td class="px-xl py-lg text-body-md font-body-md text-outline">2 days ago</td>
+<td class="px-xl py-lg">
+<div class="flex items-center gap-sm">
+<button class="p-sm rounded-lg text-outline hover:text-primary hover:bg-primary/10 transition-all">
+<span class="material-symbols-outlined">edit</span>
+</button>
+<button class="p-sm rounded-lg text-outline hover:text-error hover:bg-error/10 transition-all">
+<span class="material-symbols-outlined">delete</span>
+</button>
+<button class="p-sm rounded-lg text-primary hover:bg-primary/10 transition-all">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">play_circle</span>
+</button>
+</div>
+</td>
+</tr>
+<!-- Table Row 3 -->
+<tr class="hover:bg-surface-container-low transition-colors group">
+<td class="px-xl py-lg">
+<div class="flex items-center gap-md">
+<div class="w-10 h-10 rounded-lg bg-secondary/10 flex items-center justify-center text-secondary">
+<span class="material-symbols-outlined">business_center</span>
+</div>
+<div>
+<p class="text-body-md font-bold text-on-surface">Business Terms</p>
+<p class="text-label-caps font-label-caps text-outline">LEVEL: ADVANCED</p>
+</div>
+</div>
+</td>
+<td class="px-xl py-lg">
+<span class="px-md py-xs bg-surface-container rounded-full text-label-caps font-label-caps text-on-surface-variant">German</span>
+</td>
+<td class="px-xl py-lg text-body-md font-body-md text-on-surface">315</td>
+<td class="px-xl py-lg">
+<div class="flex items-center gap-sm">
+<div class="w-24 bg-surface-container-high h-1.5 rounded-full overflow-hidden">
+<div class="bg-secondary h-full rounded-full" style="width: 98%"></div>
+</div>
+<span class="text-label-caps font-label-caps text-secondary">98%</span>
+</div>
+</td>
+<td class="px-xl py-lg text-body-md font-body-md text-outline">Yesterday</td>
+<td class="px-xl py-lg">
+<div class="flex items-center gap-sm">
+<button class="p-sm rounded-lg text-outline hover:text-primary hover:bg-primary/10 transition-all">
+<span class="material-symbols-outlined">edit</span>
+</button>
+<button class="p-sm rounded-lg text-outline hover:text-error hover:bg-error/10 transition-all">
+<span class="material-symbols-outlined">delete</span>
+</button>
+<button class="p-sm rounded-lg text-primary hover:bg-primary/10 transition-all">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">play_circle</span>
+</button>
+</div>
+</td>
+</tr>
+<!-- Table Row 4 -->
+<tr class="hover:bg-surface-container-low transition-colors group">
+<td class="px-xl py-lg">
+<div class="flex items-center gap-md">
+<div class="w-10 h-10 rounded-lg bg-surface-container-highest flex items-center justify-center text-outline">
+<span class="material-symbols-outlined">public</span>
+</div>
+<div>
+<p class="text-body-md font-bold text-on-surface">Travel Essentials</p>
+<p class="text-label-caps font-label-caps text-outline">LEVEL: BEGINNER</p>
+</div>
+</div>
+</td>
+<td class="px-xl py-lg">
+<span class="px-md py-xs bg-surface-container rounded-full text-label-caps font-label-caps text-on-surface-variant">Italian</span>
+</td>
+<td class="px-xl py-lg text-body-md font-body-md text-on-surface">185</td>
+<td class="px-xl py-lg">
+<div class="flex items-center gap-sm">
+<div class="w-24 bg-surface-container-high h-1.5 rounded-full overflow-hidden">
+<div class="bg-primary h-full rounded-full" style="width: 15%"></div>
+</div>
+<span class="text-label-caps font-label-caps text-primary">15%</span>
+</div>
+</td>
+<td class="px-xl py-lg text-body-md font-body-md text-outline">Never</td>
+<td class="px-xl py-lg">
+<div class="flex items-center gap-sm">
+<button class="p-sm rounded-lg text-outline hover:text-primary hover:bg-primary/10 transition-all">
+<span class="material-symbols-outlined">edit</span>
+</button>
+<button class="p-sm rounded-lg text-outline hover:text-error hover:bg-error/10 transition-all">
+<span class="material-symbols-outlined">delete</span>
+</button>
+<button class="p-sm rounded-lg text-primary hover:bg-primary/10 transition-all">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">play_circle</span>
+</button>
+</div>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="px-xl py-md border-t border-outline-variant flex items-center justify-between">
+<p class="text-label-caps font-label-caps text-outline">Showing 4 of 12 decks</p>
+<div class="flex gap-sm">
+<button class="p-xs rounded border border-outline-variant text-outline hover:text-primary transition-all disabled:opacity-30" disabled="">
+<span class="material-symbols-outlined">chevron_left</span>
+</button>
+<button class="p-xs rounded border border-outline-variant text-outline hover:text-primary transition-all">
+<span class="material-symbols-outlined">chevron_right</span>
+</button>
+</div>
+</div>
+</div>
+<!-- Bottom Banner (Atmospheric) -->
+<div class="mt-xl relative rounded-2xl overflow-hidden h-40 group cursor-pointer">
+<img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-1000" data-alt="A tranquil and focused study environment featuring an open book on a clean wooden desk, accompanied by a steaming cup of coffee and soft, warm morning sunlight streaming through a window. The scene is incredibly peaceful and minimalist, utilizing a soft blue and neutral color palette to evoke a sense of calm learning sanctuary." src="https://lh3.googleusercontent.com/aida-public/AB6AXuB8KmwpPq7KuA5dmqxhN8QAtHSjRgp9X1h1V18GTt6kEbEI1H38RjP8Gx1WE7FdlrxVnloW5VtXjd3wqYjIRvZyQ4BHJfQ5Ztk_yHY0ZcOBFPxvvuEvtrTAmbbjrfblSDzbDkLee3sLZPoudyWxSgS8xmjEGIUeILYgBiZRl26TY8U8pk1ZL3Xf3xm-CgdUriRiUMCR8_YaGkauKLqkPPbgePhGfyox016KpGGiGQtxAxjPiLR0SQx9KMirVw743dRd7S0izlE5DYk"/>
+<div class="absolute inset-0 bg-gradient-to-r from-primary/80 to-transparent flex items-center px-xl">
+<div class="max-w-md">
+<h4 class="text-headline-md font-headline-md text-white">Unlock AI-Powered Decks</h4>
+<p class="text-body-md font-body-md text-white/80">Generate personalized vocabulary cards based on your interests and reading habits.</p>
+</div>
+</div>
+</div>
+</main>
+<script>
+        // Simple interactivity for demonstration
+        document.querySelectorAll('tr').forEach(row => {
+            row.addEventListener('click', (e) => {
+                if(e.target.closest('button')) return; // Don't trigger if action button is clicked
+                console.log('Opening deck details...');
+            });
+        });
+
+        // Search highlight mock
+        const searchInput = document.querySelector('input[type="text"]');
+        searchInput.addEventListener('input', (e) => {
+            const query = e.target.value.toLowerCase();
+            document.querySelectorAll('tbody tr').forEach(row => {
+                const text = row.innerText.toLowerCase();
+                row.style.display = text.includes(query) ? '' : 'none';
+            });
+        });
+    </script>
+</body></html>

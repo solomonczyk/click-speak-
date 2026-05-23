@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "primary-fixed-dim": "#b4c5ff",
+                        "secondary": "#006c49",
+                        "surface-container-low": "#eff4ff",
+                        "on-primary-container": "#eeefff",
+                        "inverse-primary": "#b4c5ff",
+                        "tertiary": "#4e565b",
+                        "tertiary-fixed-dim": "#bfc8ce",
+                        "surface-container-lowest": "#ffffff",
+                        "secondary-fixed": "#6ffbbe",
+                        "on-primary": "#ffffff",
+                        "surface-container": "#e5eeff",
+                        "surface-dim": "#cbdbf5",
+                        "on-secondary": "#ffffff",
+                        "surface-bright": "#f8f9ff",
+                        "on-tertiary-fixed": "#141d21",
+                        "outline-variant": "#c3c6d7",
+                        "on-secondary-fixed": "#002113",
+                        "on-secondary-container": "#00714d",
+                        "on-primary-fixed": "#00174b",
+                        "primary-fixed": "#dbe1ff",
+                        "inverse-on-surface": "#eaf1ff",
+                        "error": "#ba1a1a",
+                        "on-surface-variant": "#434655",
+                        "on-tertiary": "#ffffff",
+                        "surface-variant": "#d3e4fe",
+                        "tertiary-fixed": "#dbe4ea",
+                        "background": "#f8f9ff",
+                        "primary": "#004ac6",
+                        "surface-tint": "#0053db",
+                        "secondary-fixed-dim": "#4edea3",
+                        "secondary-container": "#6cf8bb",
+                        "outline": "#737686",
+                        "on-background": "#0b1c30",
+                        "primary-container": "#2563eb",
+                        "surface": "#f8f9ff",
+                        "inverse-surface": "#213145",
+                        "on-primary-fixed-variant": "#003ea8",
+                        "on-tertiary-fixed-variant": "#3f484d",
+                        "tertiary-container": "#666f74",
+                        "on-secondary-fixed-variant": "#005236",
+                        "surface-container-high": "#dce9ff",
+                        "surface-container-highest": "#d3e4fe",
+                        "on-error-container": "#93000a",
+                        "on-surface": "#0b1c30",
+                        "on-tertiary-container": "#e9f2f8",
+                        "error-container": "#ffdad6",
+                        "on-error": "#ffffff"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "xs": "4px",
+                        "container-max": "1200px",
+                        "sm": "8px",
+                        "lg": "24px",
+                        "md": "16px",
+                        "xl": "48px",
+                        "gutter": "20px",
+                        "base-unit": "4px"
+                    },
+                    "fontFamily": {
+                        "interactive-btn": ["Inter"],
+                        "headline-md": ["Inter"],
+                        "body-lg": ["Inter"],
+                        "display-vocab": ["Inter"],
+                        "headline-lg-mobile": ["Inter"],
+                        "headline-lg": ["Inter"],
+                        "label-caps": ["Inter"],
+                        "body-md": ["Inter"]
+                    },
+                    "fontSize": {
+                        "interactive-btn": ["16px", {"lineHeight": "20px", "fontWeight": "500"}],
+                        "headline-md": ["20px", {"lineHeight": "28px", "fontWeight": "600"}],
+                        "body-lg": ["18px", {"lineHeight": "28px", "fontWeight": "400"}],
+                        "display-vocab": ["40px", {"lineHeight": "48px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                        "headline-lg-mobile": ["24px", {"lineHeight": "32px", "fontWeight": "600"}],
+                        "headline-lg": ["30px", {"lineHeight": "38px", "fontWeight": "600"}],
+                        "label-caps": ["12px", {"lineHeight": "16px", "letterSpacing": "0.05em", "fontWeight": "600"}],
+                        "body-md": ["16px", {"lineHeight": "24px", "fontWeight": "400"}]
+                    }
+                },
+            },
+        }
+    </script>
+<style>
+        body { font-family: 'Inter', sans-serif; background-color: #f8f9ff; }
+        .material-symbols-outlined { font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24; }
+        .glass-card { background: rgba(255, 255, 255, 0.7); backdrop-filter: blur(12px); }
+        .card-shadow { shadow: 0px 4px 20px rgba(0,0,0,0.04); }
+    </style>
+</head>
+<body class="bg-background text-on-surface">
+<!-- SideNavBar Anchor -->
+<aside class="bg-surface-container-lowest dark:bg-surface-dim shadow-sm h-screen w-64 fixed left-0 top-0 flex flex-col h-full py-md px-md border-r border-outline-variant dark:border-outline z-50">
+<div class="mb-xl px-sm">
+<h1 class="text-headline-lg font-headline-lg font-bold text-primary dark:text-inverse-primary">Linguist</h1>
+<p class="text-label-caps font-label-caps text-on-surface-variant mt-xs">Daily Streak: 12 days</p>
+</div>
+<nav class="flex-1 space-y-sm">
+<!-- Dashboard (Active) -->
+<a class="flex items-center px-md py-sm rounded-lg text-primary dark:text-primary-fixed-dim font-bold border-r-4 border-primary dark:border-primary-fixed-dim bg-surface-container-low dark:bg-surface-container transition-transform duration-150 active:scale-[0.98]" href="#">
+<span class="material-symbols-outlined mr-md" data-icon="dashboard">dashboard</span>
+<span class="text-body-md font-body-md">Dashboard</span>
+</a>
+<!-- Learn -->
+<a class="flex items-center px-md py-sm rounded-lg text-on-surface-variant dark:text-outline-variant hover:text-primary dark:hover:text-primary-fixed-dim hover:bg-surface-container-high dark:hover:bg-surface-variant transition-colors duration-200 active:scale-[0.98]" href="#">
+<span class="material-symbols-outlined mr-md" data-icon="school">school</span>
+<span class="text-body-md font-body-md">Learn</span>
+</a>
+<!-- Decks -->
+<a class="flex items-center px-md py-sm rounded-lg text-on-surface-variant dark:text-outline-variant hover:text-primary dark:hover:text-primary-fixed-dim hover:bg-surface-container-high dark:hover:bg-surface-variant transition-colors duration-200 active:scale-[0.98]" href="#">
+<span class="material-symbols-outlined mr-md" data-icon="style">style</span>
+<span class="text-body-md font-body-md">Decks</span>
+</a>
+<!-- Statistics -->
+<a class="flex items-center px-md py-sm rounded-lg text-on-surface-variant dark:text-outline-variant hover:text-primary dark:hover:text-primary-fixed-dim hover:bg-surface-container-high dark:hover:bg-surface-variant transition-colors duration-200 active:scale-[0.98]" href="#">
+<span class="material-symbols-outlined mr-md" data-icon="query_stats">query_stats</span>
+<span class="text-body-md font-body-md">Statistics</span>
+</a>
+</nav>
+<div class="mt-auto space-y-sm pt-md border-t border-outline-variant">
+<button class="w-full bg-primary text-on-primary py-sm rounded-xl font-interactive-btn text-interactive-btn flex items-center justify-center gap-2 hover:opacity-90 transition-opacity">
+<span class="material-symbols-outlined" data-icon="add">add</span>
+                New Deck
+            </button>
+<a class="flex items-center px-md py-sm rounded-lg text-on-surface-variant hover:text-primary transition-colors" href="#">
+<span class="material-symbols-outlined mr-md" data-icon="settings">settings</span>
+<span class="text-body-md font-body-md">Settings</span>
+</a>
+<a class="flex items-center px-md py-sm rounded-lg text-on-surface-variant hover:text-primary transition-colors" href="#">
+<span class="material-symbols-outlined mr-md" data-icon="help">help</span>
+<span class="text-body-md font-body-md">Help</span>
+</a>
+</div>
+</aside>
+<!-- TopAppBar Anchor -->
+<header class="flex justify-between items-center h-16 px-lg sticky top-0 z-40 ml-64 bg-surface dark:bg-background border-b border-outline-variant dark:border-outline">
+<div class="flex items-center flex-1 max-w-xl">
+<div class="relative w-full">
+<span class="material-symbols-outlined absolute left-md top-1/2 -translate-y-1/2 text-outline" data-icon="search">search</span>
+<input class="w-full pl-xl pr-md py-xs bg-surface-container-low border-none rounded-full focus:ring-2 focus:ring-primary/20 text-body-md" placeholder="Search decks, words, or lessons..." type="text"/>
+</div>
+</div>
+<div class="flex items-center gap-lg">
+<button class="text-on-surface-variant hover:text-primary transition-all active:opacity-80">
+<span class="material-symbols-outlined" data-icon="notifications">notifications</span>
+</button>
+<button class="text-on-surface-variant hover:text-primary transition-all active:opacity-80">
+<span class="material-symbols-outlined" data-icon="history">history</span>
+</button>
+<div class="flex items-center gap-sm pl-md border-l border-outline-variant">
+<span class="text-label-caps font-label-caps">Profile</span>
+<img alt="User avatar" class="w-8 h-8 rounded-full border-2 border-primary-container" data-alt="A clean, professional headshot of a friendly man with a slight smile, set against a soft blue studio background. The lighting is bright and modern, emphasizing a light-mode aesthetic. High-quality digital photography with a sharp focus on facial features and a shallow depth of field." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCd4kuAYY1RzKd1zrZdG_-NmXwnutGr2AOH9mGuPtxGCodH_c5Ez89wrsb4YkHYWPosmBRTLYY--JBGVDZ9jwmE7XHAU7vfXtULAnGNg-FrsR-6kroZM2s1KcqlOVOjZ0LeuNebPYqy8ELYXP_fA6SSLRutV2yBtYuni24arLeKmJJPqJyUcxftgbVJP7PzXlyqaSoLy8LXny8oLmCbUKD2WXorz8ISmljr6cO4-8jsuo8cohby0ZCAqve5116MqcywBMRFrhGdAyI"/>
+</div>
+</div>
+</header>
+<!-- Main Content -->
+<main class="ml-64 p-xl max-w-7xl mx-auto">
+<!-- Hero / Progress Section -->
+<section class="mb-xl">
+<div class="grid grid-cols-1 lg:grid-cols-3 gap-lg">
+<!-- Primary CTA Card -->
+<div class="lg:col-span-2 relative overflow-hidden bg-primary rounded-xl p-xl text-on-primary flex flex-col justify-between min-h-[280px] shadow-lg group">
+<div class="relative z-10">
+<h2 class="text-headline-lg font-headline-lg mb-sm">Ready for your daily session?</h2>
+<p class="text-body-lg font-body-lg opacity-90 max-w-md">You're on a 12-day roll. Keep the momentum going and master 5 more words today.</p>
+</div>
+<div class="relative z-10 flex gap-md mt-lg">
+<button class="bg-surface-container-lowest text-primary px-xl py-md rounded-xl font-interactive-btn text-interactive-btn hover:scale-[1.02] transition-transform shadow-md">
+                            Start Learning
+                        </button>
+<button class="bg-primary-container/20 text-on-primary-container border border-on-primary-container/30 px-xl py-md rounded-xl font-interactive-btn text-interactive-btn hover:bg-primary-container/30 transition-colors">
+                            Review Flashcards
+                        </button>
+</div>
+<!-- Decorative Element -->
+<div class="absolute right-0 bottom-0 w-64 h-64 bg-white/10 rounded-full blur-3xl -mr-24 -mb-24 group-hover:scale-110 transition-transform duration-700"></div>
+</div>
+<!-- Stats Bento Card -->
+<div class="bg-surface-container-lowest rounded-xl p-lg shadow-[0px_4px_20px_rgba(0,0,0,0.04)] flex flex-col justify-between">
+<div class="flex justify-between items-start mb-md">
+<h3 class="text-headline-md font-headline-md">Your Growth</h3>
+<span class="material-symbols-outlined text-secondary" data-icon="trending_up">trending_up</span>
+</div>
+<div class="flex items-center gap-lg">
+<div class="relative flex items-center justify-center">
+<svg class="w-24 h-24 transform -rotate-90">
+<circle class="text-surface-container" cx="48" cy="48" fill="transparent" r="40" stroke="currentColor" stroke-width="6"></circle>
+<circle class="text-primary" cx="48" cy="48" fill="transparent" r="40" stroke="currentColor" stroke-dasharray="251.2" stroke-dashoffset="62.8" stroke-width="6"></circle>
+</svg>
+<div class="absolute flex flex-col items-center">
+<span class="text-headline-md font-bold">75%</span>
+</div>
+</div>
+<div>
+<div class="mb-sm">
+<p class="text-label-caps font-label-caps text-on-surface-variant">WORDS MASTERED</p>
+<p class="text-headline-md font-headline-md text-primary">450</p>
+</div>
+<div>
+<p class="text-label-caps font-label-caps text-on-surface-variant">GOAL REACHED</p>
+<p class="text-headline-md font-headline-md text-secondary">12/15</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Vocabulary Decks Section -->
+<section>
+<div class="flex items-center justify-between mb-lg px-xs">
+<h2 class="text-headline-md font-headline-md">Active Vocabulary Decks</h2>
+<button class="text-primary font-interactive-btn text-interactive-btn flex items-center gap-xs hover:underline">
+                    View all decks
+                    <span class="material-symbols-outlined text-base" data-icon="arrow_forward">arrow_forward</span>
+</button>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-lg">
+<!-- Deck Card 1: Essential Spanish -->
+<div class="bg-surface-container-lowest rounded-xl overflow-hidden shadow-[0px_4px_20px_rgba(0,0,0,0.04)] border border-outline-variant hover:scale-[1.01] transition-all cursor-pointer group">
+<div class="h-32 bg-surface-variant relative overflow-hidden">
+<img alt="Madrid, Spain" class="w-full h-full object-cover opacity-80 group-hover:scale-105 transition-transform duration-500" data-alt="A vibrant landscape of Madrid's Plaza de Cibeles at sunset. The historic architecture is bathed in warm golden light, with a clear sky and deep blue accents. The style is modern travel photography with high saturation and crisp details, creating an inviting and culturally rich atmosphere." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBO78hDNnTNQsjD5J-6vBICVZegmVgmddV80zz6S2q358Ac0OBJo42QTKePkmQzjCSDRd5imFL4HXXuy7e4lWq6PKCenSOpN-HU0pKs1nApjNPyrck5__y9v97RqfoORLRdSza51oPRQ_8sRA45RWV2mX2KU5RMIBvfzXRA-DkuGLh7PjdDaj3JojpqAGvDEQms1fq8Git04BGcH2d0U6SHx5sb1dgwCrPJ8tkd8Hkl7xhtwPKxWsk8rWtkCsKHt-Z-aPpVMWxcLhE"/>
+<div class="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent"></div>
+<span class="absolute top-md right-md bg-white/90 backdrop-blur-sm px-sm py-xs rounded-full text-label-caps text-primary shadow-sm">65% Progress</span>
+</div>
+<div class="p-lg">
+<h4 class="text-headline-md font-headline-md mb-xs">Essential Spanish</h4>
+<p class="text-body-md font-body-md text-on-surface-variant mb-lg">Common phrases for daily conversation and travel.</p>
+<div class="flex items-center justify-between">
+<span class="text-label-caps font-label-caps text-outline">120 CARDS</span>
+<div class="flex -space-x-2">
+<div class="w-6 h-6 rounded-full bg-secondary-container border-2 border-white flex items-center justify-center text-[10px] font-bold text-on-secondary-container">ES</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Deck Card 2: Business English -->
+<div class="bg-surface-container-lowest rounded-xl overflow-hidden shadow-[0px_4px_20px_rgba(0,0,0,0.04)] border border-outline-variant hover:scale-[1.01] transition-all cursor-pointer group">
+<div class="h-32 bg-surface-variant relative overflow-hidden">
+<img alt="Modern Skyscraper" class="w-full h-full object-cover opacity-80 group-hover:scale-105 transition-transform duration-500" data-alt="An abstract, low-angle shot of a sleek glass skyscraper reflecting a bright blue sky. The composition emphasizes clean lines and geometric patterns, creating a professional and ambitious atmosphere. The lighting is bright and clear, adhering to a minimalist corporate aesthetic with cool tones." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAiFHtW5SEY9UTXsw71b7huCpOFBPNVzYwRWQHS6wIPbvX-eeohLofLzAxLkiK9iHFzatCaqDRV5WWvF-TMa74poiyp4Ue4cVVht5NHmeENTECoT7RCG_xrC2-wTlN0Ibjm-IyQMEhGJ2yEtpqG9Y4mzZXYsUgqc_mla93RYrcuh60iINi3z0-tGcIjfubb--QWPR3XOjE-FHLMDVOg7mNxRliaYAVKGN4eNVrVVDIahcuZhfbWe1KjyyPIbXZHTh4jL2sEJg0hpdA"/>
+<div class="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent"></div>
+<span class="absolute top-md right-md bg-white/90 backdrop-blur-sm px-sm py-xs rounded-full text-label-caps text-primary shadow-sm">28% Progress</span>
+</div>
+<div class="p-lg">
+<h4 class="text-headline-md font-headline-md mb-xs">Business English</h4>
+<p class="text-body-md font-body-md text-on-surface-variant mb-lg">Master professional idioms and negotiation vocabulary.</p>
+<div class="flex items-center justify-between">
+<span class="text-label-caps font-label-caps text-outline">85 CARDS</span>
+<div class="flex -space-x-2">
+<div class="w-6 h-6 rounded-full bg-primary-container border-2 border-white flex items-center justify-center text-[10px] font-bold text-on-primary-container">EN</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Deck Card 3: Vacation Phrases -->
+<div class="bg-surface-container-lowest rounded-xl overflow-hidden shadow-[0px_4px_20px_rgba(0,0,0,0.04)] border border-outline-variant hover:scale-[1.01] transition-all cursor-pointer group">
+<div class="h-32 bg-surface-variant relative overflow-hidden">
+<img alt="Beachfront" class="w-full h-full object-cover opacity-80 group-hover:scale-105 transition-transform duration-500" data-alt="A serene, minimalist view of a tropical beach with turquoise water and pristine white sand. The lighting is diffused and airy, creating a calm and restorative mood. The palette consists of soft blues and sandy neutrals, perfectly aligned with a modern, high-end vacation aesthetic." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAA5AOfvqKV1BT1FM2713UrINif6bIWpp3N36TgOslvhuje4c4MyMaJabjuJ-Rw6VQI_gmeho04iuhSF8Ccbl6be04djN2mGnmTOkDNwIEV2Zv6lqh_1EclrYnfr2CdfSXZ3J1dXJ-oEz5-K1r7yDl44DtHnAM88k7ZsVjgThq0LLzfEFhwVQUKR7ncjIzxnvmXiixA76RGx0numBPDD0ZBniV0DlB0xsU5pwHINEaJ7v0vxZzBC2aIUiMp0CRAPLPtvri98GBRqOU"/>
+<div class="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent"></div>
+<span class="absolute top-md right-md bg-white/90 backdrop-blur-sm px-sm py-xs rounded-full text-label-caps text-primary shadow-sm">92% Progress</span>
+</div>
+<div class="p-lg">
+<h4 class="text-headline-md font-headline-md mb-xs">Vacation Phrases</h4>
+<p class="text-body-md font-body-md text-on-surface-variant mb-lg">Ordering food, asking for directions, and meeting locals.</p>
+<div class="flex items-center justify-between">
+<span class="text-label-caps font-label-caps text-outline">45 CARDS</span>
+<div class="flex -space-x-2">
+<div class="w-6 h-6 rounded-full bg-secondary-container border-2 border-white flex items-center justify-center text-[10px] font-bold text-on-secondary-container">FR</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Vocabulary Card Highlight (Bento Component) -->
+<section class="mt-xl grid grid-cols-1 md:grid-cols-2 gap-lg">
+<div class="bg-surface-container-high rounded-xl p-lg flex items-center gap-xl">
+<div class="flex-shrink-0 bg-white p-xl rounded-lg shadow-sm border border-outline-variant text-center min-w-[140px]">
+<p class="text-display-vocab font-display-vocab text-primary">¡Hola!</p>
+<p class="text-label-caps font-label-caps text-outline mt-sm">SPANISH</p>
+</div>
+<div>
+<h3 class="text-headline-md font-headline-md mb-xs">Word of the Day</h3>
+<p class="text-body-md font-body-md text-on-surface-variant">Challenge yourself to use "¡Hola!" in a sentence today. This greeting is the foundation of all conversations.</p>
+<button class="mt-md text-primary font-bold text-body-md flex items-center gap-xs">
+                        Learn more
+                        <span class="material-symbols-outlined text-sm" data-icon="chevron_right">chevron_right</span>
+</button>
+</div>
+</div>
+<div class="bg-secondary-container/20 rounded-xl p-lg border border-secondary-container flex flex-col justify-center">
+<div class="flex items-center gap-md mb-sm">
+<div class="p-sm bg-secondary text-on-secondary rounded-lg">
+<span class="material-symbols-outlined" data-icon="bolt">bolt</span>
+</div>
+<h3 class="text-headline-md font-headline-md text-secondary">Flash Streak Bonus</h3>
+</div>
+<p class="text-body-md font-body-md text-on-secondary-container">Complete 3 decks without a mistake to earn a 2x XP multiplier for the next hour!</p>
+</div>
+</section>
+</main>
+<!-- Contextual FAB Suppression: Hiding on Dashboard per guidelines if not explicitly requested, but included for accessibility if needed -->
+<!-- However, task says "Features a progress overview... a grid of active vocabulary decks". Minimalist layout prioritized. -->
+<script>
+        // Simple micro-interactions
+        document.querySelectorAll('a, button').forEach(el => {
+            el.addEventListener('mousedown', () => el.style.transform = 'scale(0.98)');
+            el.addEventListener('mouseup', () => el.style.transform = '');
+            el.addEventListener('mouseleave', () => el.style.transform = '');
+        });
+
+        // Add visual flair to the streak progress
+        const circle = document.querySelector('circle.text-primary');
+        if (circle) {
+            const radius = circle.r.baseVal.value;
+            const circumference = 2 * Math.PI * radius;
+            const progress = 0.75; // 75%
+            circle.style.strokeDashoffset = circumference * (1 - progress);
+        }
+    </script>
+</body></html>

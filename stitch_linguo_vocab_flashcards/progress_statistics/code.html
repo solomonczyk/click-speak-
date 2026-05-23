@@ -1,0 +1,382 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Linguist | Statistics &amp; Analytics</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "primary-fixed-dim": "#b4c5ff",
+                        "secondary": "#006c49",
+                        "surface-container-low": "#eff4ff",
+                        "on-primary-container": "#eeefff",
+                        "inverse-primary": "#b4c5ff",
+                        "tertiary": "#4e565b",
+                        "tertiary-fixed-dim": "#bfc8ce",
+                        "surface-container-lowest": "#ffffff",
+                        "secondary-fixed": "#6ffbbe",
+                        "on-primary": "#ffffff",
+                        "surface-container": "#e5eeff",
+                        "surface-dim": "#cbdbf5",
+                        "on-secondary": "#ffffff",
+                        "surface-bright": "#f8f9ff",
+                        "on-tertiary-fixed": "#141d21",
+                        "outline-variant": "#c3c6d7",
+                        "on-secondary-fixed": "#002113",
+                        "on-secondary-container": "#00714d",
+                        "on-primary-fixed": "#00174b",
+                        "primary-fixed": "#dbe1ff",
+                        "inverse-on-surface": "#eaf1ff",
+                        "error": "#ba1a1a",
+                        "on-surface-variant": "#434655",
+                        "on-tertiary": "#ffffff",
+                        "surface-variant": "#d3e4fe",
+                        "tertiary-fixed": "#dbe4ea",
+                        "background": "#f8f9ff",
+                        "primary": "#004ac6",
+                        "surface-tint": "#0053db",
+                        "secondary-fixed-dim": "#4edea3",
+                        "secondary-container": "#6cf8bb",
+                        "outline": "#737686",
+                        "on-background": "#0b1c30",
+                        "primary-container": "#2563eb",
+                        "surface": "#f8f9ff",
+                        "inverse-surface": "#213145",
+                        "on-primary-fixed-variant": "#003ea8",
+                        "on-tertiary-fixed-variant": "#3f484d",
+                        "tertiary-container": "#666f74",
+                        "on-secondary-fixed-variant": "#005236",
+                        "surface-container-high": "#dce9ff",
+                        "surface-container-highest": "#d3e4fe",
+                        "on-error-container": "#93000a",
+                        "on-surface": "#0b1c30",
+                        "on-tertiary-container": "#e9f2f8",
+                        "error-container": "#ffdad6",
+                        "on-error": "#ffffff"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "xs": "4px",
+                        "container-max": "1200px",
+                        "sm": "8px",
+                        "lg": "24px",
+                        "md": "16px",
+                        "xl": "48px",
+                        "gutter": "20px",
+                        "base-unit": "4px"
+                    },
+                    "fontFamily": {
+                        "interactive-btn": ["Inter"],
+                        "headline-md": ["Inter"],
+                        "body-lg": ["Inter"],
+                        "display-vocab": ["Inter"],
+                        "headline-lg-mobile": ["Inter"],
+                        "headline-lg": ["Inter"],
+                        "label-caps": ["Inter"],
+                        "body-md": ["Inter"]
+                    },
+                    "fontSize": {
+                        "interactive-btn": ["16px", {"lineHeight": "20px", "fontWeight": "500"}],
+                        "headline-md": ["20px", {"lineHeight": "28px", "fontWeight": "600"}],
+                        "body-lg": ["18px", {"lineHeight": "28px", "fontWeight": "400"}],
+                        "display-vocab": ["40px", {"lineHeight": "48px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                        "headline-lg-mobile": ["24px", {"lineHeight": "32px", "fontWeight": "600"}],
+                        "headline-lg": ["30px", {"lineHeight": "38px", "fontWeight": "600"}],
+                        "label-caps": ["12px", {"lineHeight": "16px", "letterSpacing": "0.05em", "fontWeight": "600"}],
+                        "body-md": ["16px", {"lineHeight": "24px", "fontWeight": "400"}]
+                    }
+                },
+            },
+        }
+    </script>
+<style>
+        body { background-color: #f8f9ff; font-family: 'Inter', sans-serif; }
+        .chart-bar { transition: height 1s ease-out; }
+        .glass-card { background: rgba(255, 255, 255, 0.8); backdrop-filter: blur(8px); }
+        .material-symbols-outlined { font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24; }
+    </style>
+</head>
+<body class="text-on-surface">
+<!-- SideNavBar (Shared Component) -->
+<aside class="bg-surface-container-lowest dark:bg-surface-dim shadow-sm h-screen w-64 fixed left-0 top-0 flex flex-col py-md px-md border-r border-outline-variant dark:border-outline z-50">
+<div class="mb-xl px-sm">
+<h1 class="text-headline-lg font-headline-lg font-bold text-primary dark:text-inverse-primary">Linguist</h1>
+<p class="text-label-caps font-label-caps text-on-surface-variant opacity-70">Daily Streak: 12 days</p>
+</div>
+<nav class="flex-1 space-y-xs">
+<a class="flex items-center gap-md px-md py-sm rounded-lg text-on-surface-variant dark:text-outline-variant hover:bg-surface-container-high transition-colors duration-200" href="#">
+<span class="material-symbols-outlined" data-icon="dashboard">dashboard</span>
+<span class="text-body-md font-body-md">Dashboard</span>
+</a>
+<a class="flex items-center gap-md px-md py-sm rounded-lg text-on-surface-variant dark:text-outline-variant hover:bg-surface-container-high transition-colors duration-200" href="#">
+<span class="material-symbols-outlined" data-icon="school">school</span>
+<span class="text-body-md font-body-md">Learn</span>
+</a>
+<a class="flex items-center gap-md px-md py-sm rounded-lg text-on-surface-variant dark:text-outline-variant hover:bg-surface-container-high transition-colors duration-200" href="#">
+<span class="material-symbols-outlined" data-icon="style">style</span>
+<span class="text-body-md font-body-md">Decks</span>
+</a>
+<!-- Active State: Statistics -->
+<a class="flex items-center gap-md px-md py-sm rounded-lg text-primary dark:text-primary-fixed-dim font-bold border-r-4 border-primary dark:border-primary-fixed-dim bg-surface-container-low dark:bg-surface-container transition-colors duration-200" href="#">
+<span class="material-symbols-outlined" data-icon="query_stats">query_stats</span>
+<span class="text-body-md font-body-md">Statistics</span>
+</a>
+</nav>
+<div class="mt-auto pt-md border-t border-outline-variant">
+<button class="w-full bg-primary text-on-primary py-sm rounded-lg font-interactive-btn text-interactive-btn mb-md hover:opacity-90 active:scale-[0.98] transition-all">
+                New Deck
+            </button>
+<div class="space-y-xs">
+<a class="flex items-center gap-md px-md py-sm rounded-lg text-on-surface-variant hover:bg-surface-container-high transition-colors" href="#">
+<span class="material-symbols-outlined" data-icon="settings">settings</span>
+<span class="text-label-caps font-label-caps">Settings</span>
+</a>
+<a class="flex items-center gap-md px-md py-sm rounded-lg text-on-surface-variant hover:bg-surface-container-high transition-colors" href="#">
+<span class="material-symbols-outlined" data-icon="help">help</span>
+<span class="text-label-caps font-label-caps">Help</span>
+</a>
+</div>
+</div>
+</aside>
+<!-- TopAppBar (Shared Component) -->
+<header class="flex justify-between items-center h-16 px-lg sticky top-0 z-40 ml-64 bg-surface dark:bg-background border-b border-outline-variant dark:border-outline">
+<div class="flex items-center gap-md flex-1">
+<div class="relative w-full max-w-md">
+<span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-outline" data-icon="search">search</span>
+<input class="w-full pl-10 pr-4 py-2 bg-surface-container-lowest border border-outline-variant rounded-full focus:ring-2 focus:ring-primary focus:border-primary text-body-md" placeholder="Search analytics..." type="text"/>
+</div>
+</div>
+<div class="flex items-center gap-lg">
+<div class="flex gap-md">
+<button class="text-on-surface-variant hover:text-primary transition-all">
+<span class="material-symbols-outlined" data-icon="notifications">notifications</span>
+</button>
+<button class="text-on-surface-variant hover:text-primary transition-all">
+<span class="material-symbols-outlined" data-icon="history">history</span>
+</button>
+</div>
+<div class="flex items-center gap-sm cursor-pointer hover:opacity-80 transition-opacity">
+<span class="text-label-caps font-label-caps text-on-surface">Profile</span>
+<img alt="User avatar" class="w-8 h-8 rounded-full bg-surface-container-high" src="https://lh3.googleusercontent.com/aida-public/AB6AXuC_l3xdZWNMnxpKeStTiAN4OBgXy5rmXGS1CkdC3-ADNoLzMEcBPe_iBoKpMcyRpcE3be6-4f9btcHGBwBlwwJZlZyGbAo1OPNPXTu62JN7URvtEG2Sqef3sB5Ed6ylwSJdba1KhEU93Cz25lwdyJUQwoImTzm43bd4ywVRlml0coOGGug0MkLhhAwoyZbW8TfeNF_C5B_y5bAYzvpTG2r3-BuwhKprrTbj1ZB8niJutFvSKmMlvBGx4yga0X23NALZE9RIXIDOW7Y"/>
+</div>
+</div>
+</header>
+<!-- Main Canvas -->
+<main class="ml-64 p-xl max-w-screen-container-max mx-auto min-h-screen">
+<!-- Header Section -->
+<section class="mb-xl flex flex-col md:flex-row justify-between items-end gap-lg">
+<div>
+<h2 class="text-headline-lg font-headline-lg text-on-background mb-xs">Learning Progress</h2>
+<p class="text-body-lg font-body-lg text-on-surface-variant opacity-80">You've mastered 142 new words this week. Keep the momentum!</p>
+</div>
+<div class="flex gap-sm">
+<button class="px-md py-2 bg-surface-container-highest text-on-surface-variant rounded-lg font-interactive-btn text-interactive-btn hover:bg-surface-variant transition-colors">Last 7 Days</button>
+<button class="px-md py-2 bg-primary text-on-primary rounded-lg font-interactive-btn text-interactive-btn hover:opacity-90 shadow-sm transition-all">Download Report</button>
+</div>
+</section>
+<!-- Top Bento Grid: Goal & Quick Stats -->
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-lg mb-xl">
+<!-- Goal Progress Card -->
+<div class="lg:col-span-4 bg-surface-container-lowest rounded-xl p-lg shadow-[0px_4px_20px_rgba(0,0,0,0.04)] border border-surface-container flex flex-col items-center justify-center text-center">
+<h3 class="text-label-caps font-label-caps text-outline mb-lg uppercase tracking-widest">Weekly Goal</h3>
+<div class="relative w-40 h-40 mb-lg">
+<svg class="w-full h-full transform -rotate-90">
+<circle class="text-surface-container" cx="80" cy="80" fill="transparent" r="70" stroke="currentColor" stroke-width="8"></circle>
+<circle class="text-primary transition-all duration-1000 ease-in-out" cx="80" cy="80" fill="transparent" r="70" stroke="currentColor" stroke-dasharray="440" stroke-dashoffset="66" stroke-width="8"></circle>
+</svg>
+<div class="absolute inset-0 flex flex-col items-center justify-center">
+<span class="text-headline-lg font-headline-lg text-primary">85%</span>
+<span class="text-label-caps font-label-caps text-on-surface-variant">Completed</span>
+</div>
+</div>
+<p class="text-body-md font-body-md text-on-surface-variant">1,275 / 1,500 XP earned</p>
+</div>
+<!-- Main Activity Bar Chart -->
+<div class="lg:col-span-8 bg-surface-container-lowest rounded-xl p-lg shadow-[0px_4px_20px_rgba(0,0,0,0.04)] border border-surface-container">
+<div class="flex justify-between items-center mb-xl">
+<h3 class="text-headline-md font-headline-md text-on-background">Daily Activity</h3>
+<div class="flex items-center gap-xs text-secondary">
+<span class="material-symbols-outlined text-sm" data-icon="trending_up">trending_up</span>
+<span class="text-label-caps font-label-caps">+12% from last week</span>
+</div>
+</div>
+<div class="flex items-end justify-between h-48 gap-md px-md">
+<div class="flex flex-col items-center gap-sm flex-1">
+<div class="w-full bg-primary-fixed-dim rounded-t-lg chart-bar" style="height: 40%"></div>
+<span class="text-label-caps font-label-caps text-outline">Mon</span>
+</div>
+<div class="flex flex-col items-center gap-sm flex-1">
+<div class="w-full bg-primary-fixed-dim rounded-t-lg chart-bar" style="height: 65%"></div>
+<span class="text-label-caps font-label-caps text-outline">Tue</span>
+</div>
+<div class="flex flex-col items-center gap-sm flex-1">
+<div class="w-full bg-primary rounded-t-lg chart-bar" style="height: 85%"></div>
+<span class="text-label-caps font-label-caps text-outline font-bold text-primary">Wed</span>
+</div>
+<div class="flex flex-col items-center gap-sm flex-1">
+<div class="w-full bg-primary-fixed-dim rounded-t-lg chart-bar" style="height: 50%"></div>
+<span class="text-label-caps font-label-caps text-outline">Thu</span>
+</div>
+<div class="flex flex-col items-center gap-sm flex-1">
+<div class="w-full bg-primary-fixed-dim rounded-t-lg chart-bar" style="height: 70%"></div>
+<span class="text-label-caps font-label-caps text-outline">Fri</span>
+</div>
+<div class="flex flex-col items-center gap-sm flex-1">
+<div class="w-full bg-primary-fixed-dim rounded-t-lg chart-bar" style="height: 30%"></div>
+<span class="text-label-caps font-label-caps text-outline">Sat</span>
+</div>
+<div class="flex flex-col items-center gap-sm flex-1">
+<div class="w-full bg-primary-fixed-dim rounded-t-lg chart-bar" style="height: 45%"></div>
+<span class="text-label-caps font-label-caps text-outline">Sun</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Mastery Breakdown & Performance -->
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-lg">
+<!-- Category Breakdown -->
+<div class="bg-surface-container-lowest rounded-xl p-lg shadow-[0px_4px_20px_rgba(0,0,0,0.04)] border border-surface-container">
+<h3 class="text-headline-md font-headline-md mb-lg">Mastery Breakdown</h3>
+<div class="space-y-lg">
+<div>
+<div class="flex justify-between mb-sm">
+<span class="text-body-md font-body-md">Vocabulary</span>
+<span class="text-label-caps font-label-caps text-primary">92%</span>
+</div>
+<div class="h-2 w-full bg-surface-container rounded-full overflow-hidden">
+<div class="h-full bg-primary w-[92%] rounded-full"></div>
+</div>
+</div>
+<div>
+<div class="flex justify-between mb-sm">
+<span class="text-body-md font-body-md">Grammar</span>
+<span class="text-label-caps font-label-caps text-secondary">74%</span>
+</div>
+<div class="h-2 w-full bg-surface-container rounded-full overflow-hidden">
+<div class="h-full bg-secondary w-[74%] rounded-full"></div>
+</div>
+</div>
+<div>
+<div class="flex justify-between mb-sm">
+<span class="text-body-md font-body-md">Listening</span>
+<span class="text-label-caps font-label-caps text-tertiary">58%</span>
+</div>
+<div class="h-2 w-full bg-surface-container rounded-full overflow-hidden">
+<div class="h-full bg-tertiary w-[58%] rounded-full"></div>
+</div>
+</div>
+<div>
+<div class="flex justify-between mb-sm">
+<span class="text-body-md font-body-md">Speaking</span>
+<span class="text-label-caps font-label-caps text-error">42%</span>
+</div>
+<div class="h-2 w-full bg-surface-container rounded-full overflow-hidden">
+<div class="h-full bg-error w-[42%] rounded-full"></div>
+</div>
+</div>
+</div>
+</div>
+<!-- Words Learned Over Time (Line Graph Simulation) -->
+<div class="bg-surface-container-lowest rounded-xl p-lg shadow-[0px_4px_20px_rgba(0,0,0,0.04)] border border-surface-container flex flex-col">
+<h3 class="text-headline-md font-headline-md mb-xs">Words Learned</h3>
+<p class="text-label-caps font-label-caps text-outline mb-lg">Last 30 Days</p>
+<div class="flex-1 flex items-end relative min-h-[200px]">
+<!-- Simulated Vector Line -->
+<svg class="w-full h-full" viewbox="0 0 400 150">
+<path class="text-primary opacity-20" d="M0,130 Q50,120 100,100 T200,80 T300,40 T400,10" fill="none" stroke="currentColor" stroke-width="3"></path>
+<path class="text-primary" d="M0,130 Q50,120 100,100 T200,80 T300,40 T400,10" fill="none" stroke="currentColor" stroke-dasharray="1000" stroke-dashoffset="1000" stroke-width="3">
+<animate attributename="stroke-dashoffset" dur="2s" fill="freeze" from="1000" to="0"></animate>
+</path>
+<circle class="fill-primary" cx="400" cy="10" r="5"></circle>
+</svg>
+<div class="absolute top-0 right-0 p-sm bg-primary-container text-on-primary-container rounded-lg shadow-sm">
+<p class="text-label-caps font-label-caps">Current Total</p>
+<p class="text-headline-md font-headline-md">2,840</p>
+</div>
+</div>
+</div>
+<!-- Mastery Recognition / Badge Card -->
+<div class="relative overflow-hidden bg-surface-container-lowest rounded-xl p-lg shadow-[0px_4px_20px_rgba(0,0,0,0.04)] border border-surface-container flex flex-col items-center justify-center group">
+<div class="absolute inset-0 opacity-10 group-hover:opacity-20 transition-opacity">
+<img alt="Decorative pattern" class="w-full h-full object-cover" data-alt="A sophisticated and subtle pattern of overlapping geometric circles and lines in a soft blue and silver palette. The background is clean and professional, using a light-mode aesthetic with plenty of whitespace and high-key lighting to suggest a calm and premium educational atmosphere. The overall feeling is one of intellectual achievement and modern minimalism." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBvDBV0-H5Rgxlx0T3j-GyLpK1JkDJT4ycZDxIU7yLVy6HebZ9nZtRcfBjeWzF2B1DsSx93lEt1Il92Zryv8gjP9Gkt5TNVT72I0bl-S0x8Ioev7XbCCeurR7cL9FZJqP0Z-I_fkGFssw7ZNn2y1zdtzlobm6VtOeyxnBIUJKvy8VBjoGJ3j3t28_dVrzb-apF4k9YNNn-xCUjaYh9n8EmUrGa1dpQIqYEW0xyfiKp5OfsKAUii7CajMrY-pdL3dS0-R6eXOaLEtXw"/>
+</div>
+<div class="z-10 text-center">
+<div class="w-20 h-20 bg-secondary-container rounded-full flex items-center justify-center mb-md mx-auto">
+<span class="material-symbols-outlined text-on-secondary-container text-4xl" data-icon="military_tech" data-weight="fill">military_tech</span>
+</div>
+<h3 class="text-headline-md font-headline-md mb-xs">Linguistic Elite</h3>
+<p class="text-body-md font-body-md text-on-surface-variant mb-lg px-md">You're in the top 5% of learners in your region this month.</p>
+<button class="font-interactive-btn text-interactive-btn text-primary hover:underline">View All Badges</button>
+</div>
+</div>
+</div>
+<!-- Recent Streaks / Achievements -->
+<section class="mt-xl">
+<h3 class="text-headline-md font-headline-md mb-lg">Recent Milestone Progress</h3>
+<div class="grid grid-cols-1 md:grid-cols-4 gap-md">
+<div class="bg-surface-bright border border-outline-variant rounded-lg p-md flex items-center gap-md">
+<div class="w-10 h-10 rounded-full bg-orange-100 flex items-center justify-center text-orange-600">
+<span class="material-symbols-outlined" data-icon="local_fire_department">local_fire_department</span>
+</div>
+<div>
+<p class="text-label-caps font-label-caps text-outline">Streak</p>
+<p class="text-body-md font-body-md font-bold">12 Days</p>
+</div>
+</div>
+<div class="bg-surface-bright border border-outline-variant rounded-lg p-md flex items-center gap-md">
+<div class="w-10 h-10 rounded-full bg-blue-100 flex items-center justify-center text-blue-600">
+<span class="material-symbols-outlined" data-icon="timer">timer</span>
+</div>
+<div>
+<p class="text-label-caps font-label-caps text-outline">Time Spent</p>
+<p class="text-body-md font-body-md font-bold">18.4 hrs</p>
+</div>
+</div>
+<div class="bg-surface-bright border border-outline-variant rounded-lg p-md flex items-center gap-md">
+<div class="w-10 h-10 rounded-full bg-green-100 flex items-center justify-center text-green-600">
+<span class="material-symbols-outlined" data-icon="check_circle">check_circle</span>
+</div>
+<div>
+<p class="text-label-caps font-label-caps text-outline">Accuracy</p>
+<p class="text-body-md font-body-md font-bold">88.2%</p>
+</div>
+</div>
+<div class="bg-surface-bright border border-outline-variant rounded-lg p-md flex items-center gap-md">
+<div class="w-10 h-10 rounded-full bg-purple-100 flex items-center justify-center text-purple-600">
+<span class="material-symbols-outlined" data-icon="auto_stories">auto_stories</span>
+</div>
+<div>
+<p class="text-label-caps font-label-caps text-outline">Stories Read</p>
+<p class="text-body-md font-body-md font-bold">14/20</p>
+</div>
+</div>
+</div>
+</section>
+</main>
+<script>
+        // Micro-interaction for bar charts
+        document.addEventListener('DOMContentLoaded', () => {
+            const bars = document.querySelectorAll('.chart-bar');
+            bars.forEach(bar => {
+                const finalHeight = bar.style.height;
+                bar.style.height = '0';
+                setTimeout(() => {
+                    bar.style.height = finalHeight;
+                }, 100);
+            });
+        });
+    </script>
+</body></html>
