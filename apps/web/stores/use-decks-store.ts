@@ -6,7 +6,7 @@ interface DecksState {
   decks: DeckWithStats[];
   isLoading: boolean;
   loadDecks: () => Promise<void>;
-  createDeck: (deck: Omit<Deck, "id" | "createdAt" | "updatedAt">) => Promise<void>;
+  createDeck: (deck: Omit<Deck, "id" | "createdAt" | "updatedAt">) => Promise<Deck>;
   updateDeck: (id: string, updates: Partial<Deck>) => Promise<void>;
   deleteDeck: (id: string) => Promise<void>;
 }
@@ -28,10 +28,12 @@ export const useDecksStore = create<DecksState>((set, get) => ({
 
   createDeck: async (deckData) => {
     try {
-      await deckRepo.create(deckData);
+      const deck = await deckRepo.create(deckData);
       await get().loadDecks();
+      return deck;
     } catch (error) {
       console.error("Failed to create deck:", error);
+      throw error;
     }
   },
 
