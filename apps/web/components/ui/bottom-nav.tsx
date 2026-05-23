@@ -6,10 +6,10 @@ import { LayoutDashboard, School, Layers, BarChart3 } from "lucide-react";
 import { cn } from "@/lib/utils";
 
 const navItems = [
-  { href: "/", label: "Dashboard", icon: LayoutDashboard },
-  { href: "/learn", label: "Learn", icon: School },
-  { href: "/decks", label: "Decks", icon: Layers },
-  { href: "/statistics", label: "Statistics", icon: BarChart3 },
+  { href: "/", label: "Главная", icon: LayoutDashboard },
+  { href: "/learn", label: "Обучение", icon: School },
+  { href: "/decks", label: "Колоды", icon: Layers },
+  { href: "/statistics", label: "Статистика", icon: BarChart3 },
 ];
 
 export function BottomNav() {

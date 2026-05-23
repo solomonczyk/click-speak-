@@ -28,6 +28,7 @@ export default function SettingsPage() {
       dailyGoalNew: Number(formData.get("dailyGoalNew")),
       dailyGoalReview: Number(formData.get("dailyGoalReview")),
       shuffleDefault: formData.get("shuffleDefault") === "true",
+      ttsVoiceId: (formData.get("ttsVoiceId") as string) || null,
     });
   };
 
@@ -65,9 +66,24 @@ export default function SettingsPage() {
     try {
       const text = await file.text();
       const data = JSON.parse(text);
-      alert("Импорт пока не реализован");
+
+      if (!data.version || !data.decks || !data.cards) {
+        alert("Неверный формат файла");
+        return;
+      }
+
+      const db = (await import("@/lib/db/db")).db;
+      await db.transaction("rw", db.decks, db.cards, db.dailyStats, db.settings, async () => {
+        if (data.settings) await db.settings.put(data.settings);
+        if (data.decks?.length) await db.decks.bulkPut(data.decks);
+        if (data.cards?.length) await db.cards.bulkPut(data.cards);
+        if (data.dailyStats?.length) await db.dailyStats.bulkPut(data.dailyStats);
+      });
+
+      alert("Данные импортированы успешно");
+      window.location.reload();
     } catch (error) {
-      alert("Ошибка при чтении файла");
+      alert("Ошибка при импорте: " + (error instanceof Error ? error.message : "Неверный формат файла"));
     }
   };
 
@@ -156,17 +172,38 @@ export default function SettingsPage() {
 
         <section className="bg-surface-container-lowest rounded-lg p-lg card-shadow">
           <h2 className="text-headline-md text-on-surface mb-lg">Обучение</h2>
-          <div className="flex items-center gap-sm">
-            <input
-              type="checkbox"
-              name="shuffleDefault"
-              id="shuffleDefault"
-              defaultChecked={settings.shuffleDefault}
-              className="w-5 h-5 rounded border-outline"
-            />
-            <label htmlFor="shuffleDefault" className="text-body-md text-on-surface">
-              Перемешивать карточки по умолчанию
-            </label>
+          <div className="space-y-lg">
+            <div className="flex items-center gap-sm">
+              <input
+                type="checkbox"
+                name="shuffleDefault"
+                id="shuffleDefault"
+                defaultChecked={settings.shuffleDefault}
+                className="w-5 h-5 rounded border-outline"
+              />
+              <label htmlFor="shuffleDefault" className="text-body-md text-on-surface">
+                Перемешивать карточки по умолчанию
+              </label>
+            </div>
+            <div>
+              <label className="block text-label-caps text-on-surface-variant mb-sm">
+                TTS голос
+              </label>
+              <select
+                name="ttsVoiceId"
+                defaultValue={settings.ttsVoiceId || ""}
+                title="TTS голос"
+                className="w-full max-w-xs px-4 py-2 bg-surface-container-low rounded-lg text-body-md text-on-surface border border-outline focus:outline-none focus:ring-2 focus:ring-primary/20"
+              >
+                <option value="">По умолчанию</option>
+                <option value="en-US-JennyNeural">English (Jenny)</option>
+                <option value="en-US-GuyNeural">English (Guy)</option>
+                <option value="es-ES-ElviraNeural">Español (Elvira)</option>
+                <option value="fr-FR-DeniseNeural">Français (Denise)</option>
+                <option value="de-DE-KatjaNeural">Deutsch (Katja)</option>
+                <option value="ru-RU-SvetlanaNeural">Русский (Svetlana)</option>
+              </select>
+            </div>
           </div>
         </section>
 

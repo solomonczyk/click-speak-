@@ -3,6 +3,7 @@
 import { useEffect } from "react";
 import { SideNav } from "@/components/ui/side-nav";
 import { BottomNav } from "@/components/ui/bottom-nav";
+import { FAB } from "@/components/features/fab";
 import { useSettingsStore } from "@/stores/use-settings-store";
 
 export default function MainLayout({
@@ -25,6 +26,7 @@ export default function MainLayout({
         </div>
       </main>
       <BottomNav />
+      <FAB />
     </div>
   );
 }

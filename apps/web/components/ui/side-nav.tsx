@@ -6,11 +6,11 @@ import { LayoutDashboard, School, Layers, BarChart3, Settings, Plus } from "luci
 import { cn } from "@/lib/utils";
 
 const navItems = [
-  { href: "/", label: "Dashboard", icon: LayoutDashboard },
-  { href: "/learn", label: "Learn", icon: School },
-  { href: "/decks", label: "Decks", icon: Layers },
-  { href: "/statistics", label: "Statistics", icon: BarChart3 },
-  { href: "/settings", label: "Settings", icon: Settings },
+  { href: "/", label: "Главная", icon: LayoutDashboard },
+  { href: "/learn", label: "Обучение", icon: School },
+  { href: "/decks", label: "Колоды", icon: Layers },
+  { href: "/statistics", label: "Статистика", icon: BarChart3 },
+  { href: "/settings", label: "Настройки", icon: Settings },
 ];
 
 export function SideNav() {
@@ -51,7 +51,7 @@ export function SideNav() {
           className="flex items-center gap-3 px-4 py-3 rounded-lg text-body-md text-primary hover:bg-surface-container-high transition-colors"
         >
           <Plus className="w-5 h-5" />
-          <span>New Deck</span>
+          <span>Новая колода</span>
         </Link>
       </div>
     </aside>
