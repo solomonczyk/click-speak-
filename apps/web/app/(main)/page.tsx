@@ -4,14 +4,16 @@ import { useEffect, useState } from "react";
 import { useDecksStore } from "@/stores/use-decks-store";
 import { useSettingsStore } from "@/stores/use-settings-store";
 import { statsRepo } from "@/lib/db/repositories";
-import { ArrowRight, Target, Flame, BookOpen, CheckCircle2 } from "lucide-react";
+import { ArrowRight, Target, Flame, BookOpen, CheckCircle2, Plus, Sparkles } from "lucide-react";
 import Link from "next/link";
+import { QuickAddModal } from "@/components/quick-add-modal";
 
 export default function DashboardPage() {
   const { decks, isLoading: decksLoading, loadDecks } = useDecksStore();
   const { settings, loadSettings } = useSettingsStore();
   const [streak, setStreak] = useState(0);
   const [todayStats, setTodayStats] = useState({ reviewed: 0, newWords: 0 });
+  const [isQuickAddOpen, setIsQuickAddOpen] = useState(false);
 
   useEffect(() => {
     loadDecks();
@@ -51,7 +53,7 @@ export default function DashboardPage() {
         <p className="text-body-lg text-on-surface-variant mb-lg">
           Начните повторение карточек или добавьте новые слова
         </p>
-        <div className="flex gap-md">
+        <div className="flex gap-md flex-wrap">
           <Link
             href="/learn"
             className="flex items-center gap-sm bg-primary text-on-primary px-6 py-3 rounded-lg text-interactive-btn hover:opacity-90 transition-opacity"
@@ -64,6 +66,13 @@ export default function DashboardPage() {
           >
             Мои колоды
           </Link>
+          <button
+            onClick={() => setIsQuickAddOpen(true)}
+            className="flex items-center gap-sm bg-secondary text-on-primary px-6 py-3 rounded-lg text-interactive-btn hover:opacity-90 transition-opacity"
+          >
+            <Sparkles className="w-5 h-5" />
+            Быстрое добавление
+          </button>
         </div>
       </section>
 
@@ -155,6 +164,11 @@ export default function DashboardPage() {
           </Link>
         </section>
       )}
+
+      <QuickAddModal 
+        isOpen={isQuickAddOpen} 
+        onClose={() => setIsQuickAddOpen(false)} 
+      />
     </div>
   );
 }
